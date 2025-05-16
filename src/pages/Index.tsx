@@ -1,12 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import Header from '../components/Header';
+import FeaturedCarousel from '../components/FeaturedCarousel';
+import CategoryBar from '../components/CategoryBar';
+import MenuGrid from '../components/MenuGrid';
+import { categories, menuItems } from '../data/menuData';
 
 const Index = () => {
+  const [activeCategory, setActiveCategory] = useState<string>(categories[0]);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="flex flex-col min-h-screen bg-gray-50">
+      <Header />
+      
+      <main className="flex-grow">
+        <FeaturedCarousel />
+        
+        <CategoryBar 
+          categories={categories} 
+          activeCategory={activeCategory} 
+          onCategoryChange={setActiveCategory} 
+        />
+        
+        <MenuGrid 
+          items={menuItems} 
+          currentCategory={activeCategory} 
+        />
+      </main>
+      
+      <footer className="bg-wine py-4 text-center text-white text-sm">
+        <p>&copy; {new Date().getFullYear()} Cardápio Desk - Elegant Digital Menu Solution</p>
+      </footer>
     </div>
   );
 };
