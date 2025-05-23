@@ -29,7 +29,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
             </p>
           </div>
           <div className="mt-3 self-end">
-            <span className="text-wine font-semibold text-xl">${item.price.toFixed(2)}</span>
+            <span className="text-wine font-semibold text-2xl">${item.price.toFixed(2)}</span>
           </div>
         </div>
       </div>
